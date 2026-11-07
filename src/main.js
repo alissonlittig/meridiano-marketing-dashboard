@@ -159,7 +159,8 @@ function heat() {
   }));
 }
 
-const charts = () => { trend(); bubble(); mix(); heat(); };
+const later = (f) => setTimeout(f, 0); // yield between charts to keep long tasks short
+const charts = () => { trend(); later(bubble); later(mix); later(heat); };
 const draw = () => { kpis(); charts(); table(); funnel(); };
 
 $('period').addEventListener('click', (e) => {
@@ -179,6 +180,6 @@ $('table').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
   state.dir = state.sort === b.dataset.k ? -state.dir : -1; state.sort = b.dataset.k; table();
 });
-let lastW = 0, t;
+let lastW = document.body.clientWidth, t;
 new ResizeObserver(() => { if (document.body.clientWidth === lastW) return; lastW = document.body.clientWidth; clearTimeout(t); t = setTimeout(charts, 120); }).observe(document.body);
 chips(); draw();

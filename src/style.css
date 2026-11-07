@@ -55,3 +55,11 @@ footer{padding-block:18px 34px;color:var(--mu);font-size:13px;border-top:1px sol
 @media (max-width:860px){.grid2{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.kpis .kpi:last-child{grid-column:1/-1}}
 @media (max-width:480px){.kpis{gap:8px}.kpi{padding:13px 12px}.seg button{padding:8px 11px}.top{padding-top:16px}}
 @media (prefers-reduced-motion:no-preference){.card{animation:in .5s both}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+
+/* reserve space before JS renders (CLS) */
+.chips{min-height:78px}.kpis{min-height:520px}#trend{min-height:250px}#bubble,#mix{min-height:300px}#heat{min-height:290px}#table{min-height:400px}.funnel{min-height:330px}
+@media (min-width:481px){.chips{min-height:40px}#trend{min-height:320px}#bubble,#mix{min-height:340px}}
+@media (min-width:861px){.kpis{min-height:128px}}
+@media (min-width:1101px){.kpis{min-height:150px}}
+@media (max-width:1100px) and (min-width:861px){.kpis{min-height:300px}}
+@media (max-width:860px) and (min-width:481px){.kpis{min-height:380px}}
